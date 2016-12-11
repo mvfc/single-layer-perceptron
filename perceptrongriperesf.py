@@ -1,4 +1,5 @@
 import random
+import time
 
 w = [
     0,
@@ -8,7 +9,7 @@ w = [
     0,
 ]
 
-bias = 1
+bias = random.random()
 
 # Saida 1 = gripe, saida 0 = resfriado
 
@@ -28,8 +29,11 @@ def teste(i):
 def learning(p, erro):
     for y in range (4):
         w[y+1] = w[y+1] + (erro * bias * entradas[p][y])
+flag = 0
 
-for x in range(500):
+nrvezes = input('Numero de iteracoes\n')
+
+for x in range (int(nrvezes)):
     for p in range(6):
         tst = teste(p)
         if(tst > 0):
@@ -48,3 +52,9 @@ for x in range(500):
         print('######################')
         if(saida != entradas[p][2]):
             learning(p, (entradas[p][2] - saida))
+            print('Aprendizado!')
+            flag = flag + 1
+        time.sleep(1)
+
+print('!!!!!!!!!!!')
+print('Aprendizado feito', flag, 'vezes')
