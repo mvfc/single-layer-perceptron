@@ -13,6 +13,8 @@ bias = random.random()
 
 # Saida 1 = gripe, saida 0 = resfriado
 
+# parar gerar entradas aleatorias: entradas = [[random.randint(0, 1) for x in range(5)] for y in range(100)]
+
 entradas = [
     [1, 0, 1, 1, 1],
     [0, 1, 0, 1, 0],
